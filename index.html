@@ -6,14 +6,16 @@
     <title>E-Portfolio - Ariska Dewi | PPG Informatika</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom color variables untuk "Jam Purple" theme */
+        /* Custom color variables untuk "Taro Milk Tea" theme */
         :root {
-            --jam-purple: #4a1a5c;
-            --plum-accent: #7d2e4a;
-            --light-bg: #f9f7fc;
+            --taro-primary: #6b5b8a;
+            --taro-dark: #4a3f5c;
+            --taro-light: #9b8eb8;
+            --cream-accent: #e8dcc8;
+            --light-bg: #f5f3f0;
             --white-bg: #ffffff;
-            --text-dark: #1a1a1a;
-            --text-light: #6b6b6b;
+            --text-dark: #2d2621;
+            --text-light: #6b6360;
         }
 
         /* Smooth scrolling behavior */
@@ -27,11 +29,12 @@
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--text-dark);
+            background-color: var(--light-bg);
         }
 
         /* Gradient text utility */
         .gradient-text {
-            background: linear-gradient(135deg, #4a1a5c, #7d2e4a);
+            background: linear-gradient(135deg, #6b5b8a, #9b8eb8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -50,7 +53,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: #4a1a5c;
+            background-color: #6b5b8a;
             transition: width 0.3s ease;
         }
 
@@ -59,48 +62,48 @@
         }
 
         .nav-link.active {
-            color: #4a1a5c;
+            color: #6b5b8a;
             font-weight: 600;
         }
 
         /* Card hover effect */
         .card-artifact {
             transition: transform 0.3s ease, border-color 0.3s ease;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #d9d3cb;
         }
 
         .card-artifact:hover {
             transform: translateY(-4px);
-            border-color: #4a1a5c;
+            border-color: #6b5b8a;
         }
 
         /* Button styles */
         .btn-primary {
-            background-color: #4a1a5c;
+            background-color: #6b5b8a;
             color: white;
             transition: all 0.3s ease;
         }
 
         .btn-primary:hover {
-            background-color: #7d2e4a;
+            background-color: #4a3f5c;
             transform: translateY(-2px);
         }
 
         .btn-secondary {
-            background-color: #f9f7fc;
-            color: #4a1a5c;
-            border: 1px solid #4a1a5c;
+            background-color: #f5f3f0;
+            color: #6b5b8a;
+            border: 1px solid #6b5b8a;
             transition: all 0.3s ease;
         }
 
         .btn-secondary:hover {
-            background-color: #4a1a5c;
+            background-color: #6b5b8a;
             color: white;
         }
 
         /* Blockquote styling */
         .blockquote-custom {
-            border-left: 4px solid #4a1a5c;
+            border-left: 4px solid #6b5b8a;
             padding-left: 24px;
             font-style: italic;
             color: var(--text-light);
@@ -145,7 +148,7 @@
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <!-- Logo -->
             <div class="flex items-center space-x-2">
-                <div class="w-10 h-10 rounded-full" style="background: linear-gradient(135deg, #4a1a5c, #7d2e4a);"></div>
+                <div class="w-10 h-10 rounded-full" style="background: linear-gradient(135deg, #6b5b8a, #9b8eb8);"></div>
                 <span class="text-lg font-bold gradient-text">E-Portfolio</span>
             </div>
 
@@ -175,7 +178,7 @@
     </header>
 
     <!-- ===== SECTION PROFIL ===== -->
-    <section id="profil" class="section-spacing bg-gradient-to-br from-white via-white to-blue-50">
+    <section id="profil" class="section-spacing" style="background: linear-gradient(135deg, #ffffff 0%, #f5f3f0 100%);">
         <div class="max-w-6xl mx-auto">
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <!-- Left side - Info -->
@@ -188,13 +191,13 @@
                     <!-- Info Grid -->
                     <div class="space-y-4 mb-8">
                         <!-- Asal Daerah -->
-                        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                        <div class="p-4 rounded-lg border-l-4" style="background: #faf8f6; border-left-color: #9b8eb8;">
                             <p class="text-sm text-gray-500 uppercase tracking-wide font-semibold">Asal Daerah</p>
                             <p class="text-lg text-gray-800 mt-1"><!-- GANTI: Masukkan asal daerah yang unik -->Bandung, Jawa Barat</p>
                         </div>
 
                         <!-- Inspirasi Menjadi Guru -->
-                        <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                        <div class="p-4 rounded-lg border-l-4" style="background: #faf8f6; border-left-color: #6b5b8a;">
                             <p class="text-sm text-gray-500 uppercase tracking-wide font-semibold">Inspirasi Menjadi Guru</p>
                             <p class="text-lg text-gray-800 mt-1"><!-- GANTI: Tulis inspirasi menjadi guru -->Keinginan untuk memberdayakan generasi muda melalui teknologi dan pendidikan yang inovatif</p>
                         </div>
@@ -211,7 +214,7 @@
 
                 <!-- Right side - Image placeholder -->
                 <div class="flex justify-center">
-                    <div class="w-full max-w-sm aspect-square rounded-lg bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center border border-purple-200">
+                    <div class="w-full max-w-sm aspect-square rounded-lg flex items-center justify-center border" style="background: linear-gradient(135deg, #e8dcc8 0%, #d9cfc0 100%); border-color: #9b8eb8;">
                         <!-- GANTI: Ganti dengan <img src="path-ke-foto.jpg" alt="Foto Profil" class="w-full h-full object-cover rounded-lg"> -->
                         <div class="text-center">
                             <svg class="w-24 h-24 mx-auto text-gray-400 mb-2" fill="currentColor" viewBox="0 0 24 24">
@@ -236,8 +239,8 @@
             <!-- Grid Minimalis -->
             <div class="grid md:grid-cols-3 grid-minimalis">
                 <!-- Misi Card -->
-                <div class="bg-gradient-to-br from-purple-50 to-transparent p-8 rounded-lg border border-purple-200">
-                    <div class="w-12 h-12 rounded-lg bg-purple-500 flex items-center justify-center mb-4">
+                <div class="p-8 rounded-lg border" style="background: linear-gradient(135deg, rgba(107, 91, 138, 0.05) 0%, rgba(155, 142, 184, 0.05) 100%); border-color: #d9cfc0;">
+                    <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: #6b5b8a;">
                         <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
                         </svg>
@@ -250,8 +253,8 @@
                 </div>
 
                 <!-- Kompetensi Card -->
-                <div class="bg-gradient-to-br from-pink-50 to-transparent p-8 rounded-lg border border-pink-200">
-                    <div class="w-12 h-12 rounded-lg bg-pink-500 flex items-center justify-center mb-4">
+                <div class="p-8 rounded-lg border" style="background: linear-gradient(135deg, rgba(155, 142, 184, 0.05) 0%, rgba(232, 220, 200, 0.05) 100%); border-color: #d9cfc0;">
+                    <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: #9b8eb8;">
                         <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"></path>
                         </svg>
@@ -264,8 +267,8 @@
                 </div>
 
                 <!-- Karakter Card -->
-                <div class="bg-gradient-to-br from-blue-50 to-transparent p-8 rounded-lg border border-blue-200">
-                    <div class="w-12 h-12 rounded-lg bg-blue-500 flex items-center justify-center mb-4">
+                <div class="p-8 rounded-lg border" style="background: linear-gradient(135deg, rgba(232, 220, 200, 0.05) 0%, rgba(107, 91, 138, 0.05) 100%); border-color: #d9cfc0;">
+                    <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: #4a3f5c;">
                         <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
                         </svg>
@@ -281,7 +284,7 @@
     </section>
 
     <!-- ===== SECTION ARTEFAK PPL ===== -->
-    <section id="artefak" class="section-spacing bg-gray-50">
+    <section id="artefak" class="section-spacing" style="background: #f5f3f0;">
         <div class="max-w-6xl mx-auto">
             <div class="mb-12">
                 <h2 class="text-4xl font-bold mb-4">Artefak PPL (Praktik Pengalaman Lapangan)</h2>
@@ -295,14 +298,14 @@
                     <div class="flex items-start justify-between">
                         <div class="flex-1">
                             <div class="flex items-center space-x-3 mb-4">
-                                <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: #e8dcc8;">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" style="color: #6b5b8a;">
                                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-8-6z"></path>
                                     </svg>
                                 </div>
                                 <h3 class="text-2xl font-bold text-gray-900">Rencana Pelaksanaan Pembelajaran (RPP)</h3>
                             </div>
-                            <button class="toggle-btn text-purple-600 font-semibold text-sm hover:text-purple-800 transition" data-target="rpp-content">
+                            <button class="toggle-btn font-semibold text-sm transition" style="color: #6b5b8a;" data-target="rpp-content">
                                 <span class="toggle-icon">▼</span> Lihat Detail
                             </button>
                             <div id="rpp-content" class="dropdown-content mt-4 pt-4 border-t border-gray-200">
@@ -355,14 +358,14 @@
                     <div class="flex items-start justify-between">
                         <div class="flex-1">
                             <div class="flex items-center space-x-3 mb-4">
-                                <div class="w-10 h-10 rounded-lg bg-pink-100 flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+                                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: #e8dcc8;">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" style="color: #9b8eb8;">
                                         <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"></path>
                                     </svg>
                                 </div>
                                 <h3 class="text-2xl font-bold text-gray-900">Media Pembelajaran Interaktif</h3>
                             </div>
-                            <button class="toggle-btn text-purple-600 font-semibold text-sm hover:text-purple-800 transition" data-target="media-content">
+                            <button class="toggle-btn font-semibold text-sm transition" style="color: #6b5b8a;" data-target="media-content">
                                 <span class="toggle-icon">▼</span> Lihat Detail
                             </button>
                             <div id="media-content" class="dropdown-content mt-4 pt-4 border-t border-gray-200">
@@ -415,14 +418,14 @@
                     <div class="flex items-start justify-between">
                         <div class="flex-1">
                             <div class="flex items-center space-x-3 mb-4">
-                                <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: #e8dcc8;">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" style="color: #4a3f5c;">
                                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
                                     </svg>
                                 </div>
                                 <h3 class="text-2xl font-bold text-gray-900">Video Tutorial & Demonstrasi</h3>
                             </div>
-                            <button class="toggle-btn text-purple-600 font-semibold text-sm hover:text-purple-800 transition" data-target="video-content">
+                            <button class="toggle-btn font-semibold text-sm transition" style="color: #6b5b8a;" data-target="video-content">
                                 <span class="toggle-icon">▼</span> Lihat Detail
                             </button>
                             <div id="video-content" class="dropdown-content mt-4 pt-4 border-t border-gray-200">
@@ -486,14 +489,14 @@
 
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Lampiran 7 -->
-                <div class="bg-gradient-to-br from-purple-50 to-transparent border border-purple-200 p-8 rounded-lg">
+                <div class="p-8 rounded-lg border" style="background: linear-gradient(135deg, rgba(107, 91, 138, 0.05) 0%, rgba(232, 220, 200, 0.05) 100%); border-color: #d9cfc0;">
                     <div class="flex items-start justify-between mb-6">
                         <div>
                             <h3 class="text-2xl font-bold text-gray-900 mb-2">Lampiran 7</h3>
                             <p class="text-gray-600"><!-- GANTI: Deskripsi Lampiran 7 -->Dokumentasi Proses Pembelajaran dan Evaluasi</p>
                         </div>
-                        <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: #e8dcc8;">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" style="color: #6b5b8a;">
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-8-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm0-4H8V8h8v2z"></path>
                             </svg>
                         </div>
@@ -511,14 +514,14 @@
                 </div>
 
                 <!-- Lampiran 8 -->
-                <div class="bg-gradient-to-br from-pink-50 to-transparent border border-pink-200 p-8 rounded-lg">
+                <div class="p-8 rounded-lg border" style="background: linear-gradient(135deg, rgba(155, 142, 184, 0.05) 0%, rgba(107, 91, 138, 0.05) 100%); border-color: #d9cfc0;">
                     <div class="flex items-start justify-between mb-6">
                         <div>
                             <h3 class="text-2xl font-bold text-gray-900 mb-2">Lampiran 8</h3>
                             <p class="text-gray-600"><!-- GANTI: Deskripsi Lampiran 8 -->Refleksi Diri & Pengembangan Profesional</p>
                         </div>
-                        <div class="w-12 h-12 rounded-lg bg-pink-100 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: #e8dcc8;">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" style="color: #9b8eb8;">
                                 <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
                             </svg>
                         </div>
@@ -537,7 +540,7 @@
             </div>
 
             <!-- Siklus Details -->
-            <div class="mt-12 bg-gray-50 p-8 rounded-lg border border-gray-200">
+            <div class="mt-12 p-8 rounded-lg border" style="background: #f5f3f0; border-color: #d9cfc0;">
                 <h3 class="text-2xl font-bold text-gray-900 mb-6">Dokumentasi Siklus Penelitian</h3>
                 <div class="grid md:grid-cols-3 gap-6">
                     <!-- Siklus 1 -->
@@ -584,13 +587,13 @@
     </section>
 
     <!-- ===== FOOTER ===== -->
-    <footer class="bg-gradient-to-r from-purple-900 to-pink-900 text-white py-12">
+    <footer class="text-white py-12" style="background: linear-gradient(135deg, #6b5b8a 0%, #4a3f5c 100%);">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8 mb-8">
                 <!-- Column 1 -->
                 <div>
                     <h4 class="text-lg font-bold mb-4">E-Portfolio</h4>
-                    <p class="text-purple-200">
+                    <p class="opacity-80">
                         <!-- GANTI: Tambahkan deskripsi footer -->
                         Portfolio pembelajaran dari Program Pendidikan Guru (PPG) Informatika
                     </p>
@@ -599,7 +602,7 @@
                 <!-- Column 2 -->
                 <div>
                     <h4 class="text-lg font-bold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-purple-200">
+                    <ul class="space-y-2 opacity-80">
                         <li><a href="#profil" class="hover:text-white transition">Profil</a></li>
                         <li><a href="#model-guru" class="hover:text-white transition">Model Guru</a></li>
                         <li><a href="#artefak" class="hover:text-white transition">Artefak</a></li>
@@ -610,7 +613,7 @@
                 <!-- Column 3 -->
                 <div>
                     <h4 class="text-lg font-bold mb-4">Kontak</h4>
-                    <ul class="space-y-2 text-purple-200">
+                    <ul class="space-y-2 opacity-80">
                         <li>Email: <!-- GANTI -->ariska@example.com</li>
                         <li>Phone: <!-- GANTI -->+62 812-3456-7890</li>
                         <li>
@@ -623,8 +626,8 @@
                 </div>
             </div>
 
-            <div class="border-t border-purple-700 pt-8">
-                <p class="text-center text-purple-200">
+            <div class="border-t border-opacity-20 pt-8" style="border-color: white;">
+                <p class="text-center opacity-80">
                     &copy; 2024 Ariska Dewi - Program Pendidikan Guru (PPG) Informatika. All rights reserved.
                 </p>
             </div>
