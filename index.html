@@ -6,16 +6,18 @@
     <title>E-Portfolio - Ariska Dewi | PPG Informatika</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom color variables untuk "Taro Milk Tea" theme */
+        /* Custom color variables untuk "Claymorphism" theme */
         :root {
-            --taro-primary: #6b5b8a;
-            --taro-dark: #4a3f5c;
-            --taro-light: #9b8eb8;
-            --cream-accent: #e8dcc8;
-            --light-bg: #f5f3f0;
+            --clay-primary: #d97f6e;
+            --clay-secondary: #c97a65;
+            --clay-accent: #e8a996;
+            --clay-light: #f4e4d8;
+            --clay-bg: #faf7f2;
             --white-bg: #ffffff;
-            --text-dark: #2d2621;
-            --text-light: #6b6360;
+            --text-dark: #3d2817;
+            --text-light: #6b5548;
+            --shadow-soft: 0 10px 30px rgba(217, 127, 110, 0.15);
+            --shadow-medium: 0 15px 40px rgba(217, 127, 110, 0.2);
         }
 
         /* Smooth scrolling behavior */
@@ -29,12 +31,23 @@
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--text-dark);
-            background-color: var(--light-bg);
+            background: linear-gradient(135deg, #faf7f2 0%, #f5f0eb 100%);
+            min-height: 100vh;
+        }
+
+        /* Claymorphism base styling */
+        .claymorphic {
+            background: linear-gradient(135deg, #ffffff 0%, #f9f6f1 100%);
+            box-shadow: 
+                0 10px 30px rgba(217, 127, 110, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(232, 169, 150, 0.3);
+            border-radius: 20px;
         }
 
         /* Gradient text utility */
         .gradient-text {
-            background: linear-gradient(135deg, #6b5b8a, #9b8eb8);
+            background: linear-gradient(135deg, #d97f6e, #e8a996);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -43,17 +56,19 @@
         /* Smooth transitions */
         .nav-link {
             position: relative;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -2px;
+            bottom: -4px;
             left: 0;
             width: 0;
-            height: 2px;
-            background-color: #6b5b8a;
+            height: 3px;
+            background: linear-gradient(90deg, #d97f6e, #e8a996);
+            border-radius: 2px;
             transition: width 0.3s ease;
         }
 
@@ -62,51 +77,70 @@
         }
 
         .nav-link.active {
-            color: #6b5b8a;
+            color: #d97f6e;
             font-weight: 600;
         }
 
-        /* Card hover effect */
+        .nav-link:hover {
+            color: #d97f6e;
+        }
+
+        /* Card hover effect with claymorphism */
         .card-artifact {
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            border: 1px solid #d9d3cb;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            background: linear-gradient(135deg, #ffffff 0%, #f9f6f1 100%);
+            box-shadow: 0 10px 30px rgba(217, 127, 110, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(232, 169, 150, 0.3);
+            border-radius: 20px;
         }
 
         .card-artifact:hover {
-            transform: translateY(-4px);
-            border-color: #6b5b8a;
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 20px 50px rgba(217, 127, 110, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8);
         }
 
-        /* Button styles */
+        /* Button styles with claymorphism */
         .btn-primary {
-            background-color: #6b5b8a;
+            background: linear-gradient(135deg, #d97f6e 0%, #c97a65 100%);
             color: white;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 10px 25px rgba(217, 127, 110, 0.25);
+            border: none;
+            font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
         .btn-primary:hover {
-            background-color: #4a3f5c;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(217, 127, 110, 0.35);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
         }
 
         .btn-secondary {
-            background-color: #f5f3f0;
-            color: #6b5b8a;
-            border: 1px solid #6b5b8a;
+            background: linear-gradient(135deg, #f4e4d8 0%, #ead8ca 100%);
+            color: #d97f6e;
+            border: 2px solid rgba(217, 127, 110, 0.3);
             transition: all 0.3s ease;
+            font-weight: 600;
         }
 
         .btn-secondary:hover {
-            background-color: #6b5b8a;
+            background: linear-gradient(135deg, #d97f6e 0%, #c97a65 100%);
             color: white;
+            border-color: #d97f6e;
         }
 
         /* Blockquote styling */
         .blockquote-custom {
-            border-left: 4px solid #6b5b8a;
+            border-left: 5px solid #d97f6e;
             padding-left: 24px;
             font-style: italic;
             color: var(--text-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
         }
 
         /* Section spacing */
@@ -122,12 +156,67 @@
         }
 
         .dropdown-content.active {
-            max-height: 500px;
+            max-height: 600px;
         }
 
         /* Grid minimalis */
         .grid-minimalis {
             gap: 2rem;
+        }
+
+        /* Claymorphic card component */
+        .clay-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f9f6f1 100%);
+            box-shadow: 0 10px 30px rgba(217, 127, 110, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(232, 169, 150, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .clay-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(217, 127, 110, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        /* Icon container with claymorphism */
+        .clay-icon {
+            background: linear-gradient(135deg, #e8a996 0%, #f4bba7 100%);
+            box-shadow: 0 8px 20px rgba(217, 127, 110, 0.2), inset -2px -2px 5px rgba(0, 0, 0, 0.05), inset 2px 2px 5px rgba(255, 255, 255, 0.7);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .clay-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(217, 127, 110, 0.25), inset -2px -2px 5px rgba(0, 0, 0, 0.05), inset 2px 2px 5px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Toggle button styling */
+        .toggle-btn {
+            color: #d97f6e;
+            font-weight: 600;
+            text-size: 0.875rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            padding: 8px 0;
+        }
+
+        .toggle-btn:hover {
+            color: #c97a65;
+        }
+
+        /* Info box with claymorphism */
+        .info-box {
+            background: linear-gradient(135deg, #ffffff 0%, #faf7f2 100%);
+            box-shadow: 0 8px 20px rgba(217, 127, 110, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(232, 169, 150, 0.25);
+            border-radius: 16px;
+            padding: 1rem;
+            border-left: 5px solid #d97f6e;
         }
 
         /* Responsive adjustments */
@@ -139,21 +228,34 @@
             .grid-minimalis {
                 gap: 1.5rem;
             }
+
+            .claymorphic {
+                border-radius: 16px;
+            }
+        }
+
+        /* Smooth page transitions */
+        @media (prefers-reduced-motion: no-preference) {
+            * {
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
         }
     </style>
 </head>
-<body class="bg-white text-gray-900">
+<body class="text-gray-900">
     <!-- ===== HEADER & NAVIGASI ===== -->
-    <header class="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <header class="sticky top-0 z-50 backdrop-blur-sm" style="background: rgba(255, 255, 255, 0.85); box-shadow: 0 4px 20px rgba(217, 127, 110, 0.08); border-bottom: 1px solid rgba(232, 169, 150, 0.2);">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <!-- Logo -->
-            <div class="flex items-center space-x-2">
-                <div class="w-10 h-10 rounded-full" style="background: linear-gradient(135deg, #6b5b8a, #9b8eb8);"></div>
-                <span class="text-lg font-bold gradient-text">E-Portfolio</span>
+            <div class="flex items-center space-x-3">
+                <div class="w-11 h-11 rounded-xl clay-icon" style="width: 44px; height: 44px; background: linear-gradient(135deg, #d97f6e 0%, #e8a996 100%); box-shadow: 0 8px 20px rgba(217, 127, 110, 0.2), inset -2px -2px 5px rgba(0, 0, 0, 0.05);">
+                    <span class="text-white font-bold">A</span>
+                </div>
+                <span class="text-xl font-bold gradient-text">E-Portfolio</span>
             </div>
 
             <!-- Mobile menu button -->
-            <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-gray-900">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -178,49 +280,49 @@
     </header>
 
     <!-- ===== SECTION PROFIL ===== -->
-    <section id="profil" class="section-spacing" style="background: linear-gradient(135deg, #ffffff 0%, #f5f3f0 100%);">
+    <section id="profil" class="section-spacing">
         <div class="max-w-6xl mx-auto">
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <!-- Left side - Info -->
                 <div>
-                    <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-4 leading-tight">
                         <span class="gradient-text">Ariska Dewi</span>
                     </h1>
-                    <p class="text-xl text-gray-600 mb-6">Mahasiswa Program Pendidikan Guru (PPG) Informatika</p>
+                    <p class="text-xl text-gray-600 mb-8 font-medium">Mahasiswa Program Pendidikan Guru (PPG) Informatika</p>
 
                     <!-- Info Grid -->
-                    <div class="space-y-4 mb-8">
+                    <div class="space-y-4 mb-10">
                         <!-- Asal Daerah -->
-                        <div class="p-4 rounded-lg border-l-4" style="background: #faf8f6; border-left-color: #9b8eb8;">
-                            <p class="text-sm text-gray-500 uppercase tracking-wide font-semibold">Asal Daerah</p>
-                            <p class="text-lg text-gray-800 mt-1"><!-- GANTI: Masukkan asal daerah yang unik -->Bandung, Jawa Barat</p>
+                        <div class="info-box">
+                            <p class="text-xs text-gray-500 uppercase tracking-widest font-bold">Asal Daerah</p>
+                            <p class="text-lg text-gray-800 mt-2 font-medium"><!-- GANTI: Masukkan asal daerah yang unik -->Bandung, Jawa Barat</p>
                         </div>
 
                         <!-- Inspirasi Menjadi Guru -->
-                        <div class="p-4 rounded-lg border-l-4" style="background: #faf8f6; border-left-color: #6b5b8a;">
-                            <p class="text-sm text-gray-500 uppercase tracking-wide font-semibold">Inspirasi Menjadi Guru</p>
-                            <p class="text-lg text-gray-800 mt-1"><!-- GANTI: Tulis inspirasi menjadi guru -->Keinginan untuk memberdayakan generasi muda melalui teknologi dan pendidikan yang inovatif</p>
+                        <div class="info-box">
+                            <p class="text-xs text-gray-500 uppercase tracking-widest font-bold">Inspirasi Menjadi Guru</p>
+                            <p class="text-lg text-gray-800 mt-2 font-medium"><!-- GANTI: Tulis inspirasi menjadi guru -->Keinginan untuk memberdayakan generasi muda melalui teknologi dan pendidikan yang inovatif</p>
                         </div>
                     </div>
 
                     <!-- Blockquote -->
-                    <div class="blockquote-custom py-4">
-                        <p class="text-lg">
+                    <div class="blockquote-custom py-6">
+                        <p class="text-lg leading-relaxed">
                             "<!-- GANTI: Masukkan kutipan inspiratif Anda -->Pendidikan adalah kunci pembuka pintu masa depan yang cerah bagi setiap individu."
                         </p>
-                        <p class="text-sm text-gray-500 mt-2">— Nelson Mandela</p>
+                        <p class="text-sm mt-3">— Nelson Mandela</p>
                     </div>
                 </div>
 
                 <!-- Right side - Image placeholder -->
                 <div class="flex justify-center">
-                    <div class="w-full max-w-sm aspect-square rounded-lg flex items-center justify-center border" style="background: linear-gradient(135deg, #e8dcc8 0%, #d9cfc0 100%); border-color: #9b8eb8;">
+                    <div class="w-full max-w-sm aspect-square claymorphic flex items-center justify-center" style="border-radius: 30px;">
                         <!-- GANTI: Ganti dengan <img src="path-ke-foto.jpg" alt="Foto Profil" class="w-full h-full object-cover rounded-lg"> -->
                         <div class="text-center">
-                            <svg class="w-24 h-24 mx-auto text-gray-400 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-28 h-28 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24" style="color: rgba(217, 127, 110, 0.3);">
                                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
                             </svg>
-                            <p class="text-gray-500 text-sm">Foto Profil</p>
+                            <p class="text-gray-500 text-sm font-medium">Foto Profil</p>
                         </div>
                     </div>
                 </div>
@@ -229,52 +331,52 @@
     </section>
 
     <!-- ===== SECTION MODEL GURU ===== -->
-    <section id="model-guru" class="section-spacing bg-white">
+    <section id="model-guru" class="section-spacing">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4">Model Guru PPG</h2>
-                <p class="text-gray-600 text-lg">Komitmen dan prinsip profesional sebagai calon pendidik</p>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Model Guru PPG</h2>
+                <p class="text-lg text-gray-600">Komitmen dan prinsip profesional sebagai calon pendidik</p>
             </div>
 
             <!-- Grid Minimalis -->
             <div class="grid md:grid-cols-3 grid-minimalis">
                 <!-- Misi Card -->
-                <div class="p-8 rounded-lg border" style="background: linear-gradient(135deg, rgba(107, 91, 138, 0.05) 0%, rgba(155, 142, 184, 0.05) 100%); border-color: #d9cfc0;">
-                    <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: #6b5b8a;">
-                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <div class="clay-card">
+                    <div class="w-14 h-14 clay-icon mb-6" style="background: linear-gradient(135deg, #d97f6e 0%, #e8a996 100%);">
+                        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Misi</h3>
-                    <p class="text-gray-700 leading-relaxed">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Misi</h3>
+                    <p class="text-gray-700 leading-relaxed font-medium">
                         <!-- GANTI: Tulis misi Anda sebagai calon guru -->
                         Menciptakan lingkungan belajar yang inklusif dan inovatif untuk mengembangkan potensi peserta didik secara maksimal dalam era digital.
                     </p>
                 </div>
 
                 <!-- Kompetensi Card -->
-                <div class="p-8 rounded-lg border" style="background: linear-gradient(135deg, rgba(155, 142, 184, 0.05) 0%, rgba(232, 220, 200, 0.05) 100%); border-color: #d9cfc0;">
-                    <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: #9b8eb8;">
-                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <div class="clay-card">
+                    <div class="w-14 h-14 clay-icon mb-6" style="background: linear-gradient(135deg, #e8a996 0%, #f4bba7 100%);">
+                        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Kompetensi</h3>
-                    <p class="text-gray-700 leading-relaxed">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Kompetensi</h3>
+                    <p class="text-gray-700 leading-relaxed font-medium">
                         <!-- GANTI: Jelaskan kompetensi utama Anda -->
                         Menguasai pemrograman, literasi digital, pedagogik digital, serta kemampuan berkomunikasi yang efektif dengan generasi Z.
                     </p>
                 </div>
 
                 <!-- Karakter Card -->
-                <div class="p-8 rounded-lg border" style="background: linear-gradient(135deg, rgba(232, 220, 200, 0.05) 0%, rgba(107, 91, 138, 0.05) 100%); border-color: #d9cfc0;">
-                    <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background: #4a3f5c;">
-                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <div class="clay-card">
+                    <div class="w-14 h-14 clay-icon mb-6" style="background: linear-gradient(135deg, #c97a65 0%, #d97f6e 100%);">
+                        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Karakter</h3>
-                    <p class="text-gray-700 leading-relaxed">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Karakter</h3>
+                    <p class="text-gray-700 leading-relaxed font-medium">
                         <!-- GANTI: Deskripsikan nilai karakter Anda -->
                         Integritas, dedikasi, adaptif, dan selalu belajar untuk memberikan yang terbaik bagi peserta didik dan komunitas pendidikan.
                     </p>
@@ -284,65 +386,65 @@
     </section>
 
     <!-- ===== SECTION ARTEFAK PPL ===== -->
-    <section id="artefak" class="section-spacing" style="background: #f5f3f0;">
+    <section id="artefak" class="section-spacing">
         <div class="max-w-6xl mx-auto">
-            <div class="mb-12">
-                <h2 class="text-4xl font-bold mb-4">Artefak PPL (Praktik Pengalaman Lapangan)</h2>
-                <p class="text-gray-600 text-lg">Dokumentasi lengkap kegiatan dan hasil pembelajaran di lapangan</p>
+            <div class="mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Artefak PPL</h2>
+                <p class="text-lg text-gray-600">(Praktik Pengalaman Lapangan) - Dokumentasi lengkap kegiatan dan hasil pembelajaran di lapangan</p>
             </div>
 
             <!-- Artefak Items -->
             <div class="space-y-6">
                 <!-- Artefak 1: RPP -->
-                <div class="card-artifact bg-white p-6 md:p-8 rounded-lg">
+                <div class="card-artifact p-8">
                     <div class="flex items-start justify-between">
                         <div class="flex-1">
-                            <div class="flex items-center space-x-3 mb-4">
-                                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: #e8dcc8;">
-                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" style="color: #6b5b8a;">
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div class="w-12 h-12 clay-icon" style="background: linear-gradient(135deg, #d97f6e 0%, #e8a996 100%); border-radius: 12px;">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-8-6z"></path>
                                     </svg>
                                 </div>
                                 <h3 class="text-2xl font-bold text-gray-900">Rencana Pelaksanaan Pembelajaran (RPP)</h3>
                             </div>
-                            <button class="toggle-btn font-semibold text-sm transition" style="color: #6b5b8a;" data-target="rpp-content">
+                            <button class="toggle-btn" data-target="rpp-content">
                                 <span class="toggle-icon">▼</span> Lihat Detail
                             </button>
-                            <div id="rpp-content" class="dropdown-content mt-4 pt-4 border-t border-gray-200">
-                                <div class="grid md:grid-cols-2 gap-6">
+                            <div id="rpp-content" class="dropdown-content mt-6 pt-6 border-t border-gray-200">
+                                <div class="grid md:grid-cols-2 gap-8">
                                     <div>
-                                        <h4 class="font-semibold text-gray-900 mb-2">Konteks</h4>
-                                        <p class="text-gray-700">
+                                        <h4 class="font-bold text-gray-900 mb-3 text-lg">Konteks</h4>
+                                        <p class="text-gray-700 leading-relaxed">
                                             <!-- GANTI: Jelaskan konteks RPP -->
                                             RPP disusun untuk kelas X TKJ dengan fokus pada materi jaringan komputer dasar yang disesuaikan dengan kurikulum 2013.
                                         </p>
                                     </div>
                                     <div>
-                                        <h4 class="font-semibold text-gray-900 mb-2">Tujuan Pembelajaran</h4>
-                                        <p class="text-gray-700">
+                                        <h4 class="font-bold text-gray-900 mb-3 text-lg">Tujuan Pembelajaran</h4>
+                                        <p class="text-gray-700 leading-relaxed">
                                             <!-- GANTI: Tulis tujuan pembelajaran -->
                                             Peserta didik mampu memahami konsep jaringan komputer dan mengimplementasikannya dalam praktik laboratorium.
                                         </p>
                                     </div>
                                     <div>
-                                        <h4 class="font-semibold text-gray-900 mb-2">Kelebihan</h4>
-                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                        <h4 class="font-bold text-gray-900 mb-3 text-lg">Kelebihan</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-2">
                                             <li><!-- GANTI -->Desain RPP yang terstruktur dengan baik</li>
                                             <li><!-- GANTI -->Mengintegrasikan teknologi terkini</li>
                                             <li><!-- GANTI -->Melibatkan kolaborasi antar peserta didik</li>
                                         </ul>
                                     </div>
                                     <div>
-                                        <h4 class="font-semibold text-gray-900 mb-2">Kekurangan</h4>
-                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                        <h4 class="font-bold text-gray-900 mb-3 text-lg">Kekurangan</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-2">
                                             <li><!-- GANTI -->Waktu pembelajaran terbatas</li>
                                             <li><!-- GANTI -->Ketergantungan pada ketersediaan lab</li>
                                             <li><!-- GANTI -->Perlu penyesuaian lebih lanjut</li>
                                         </ul>
                                     </div>
                                     <div class="md:col-span-2">
-                                        <h4 class="font-semibold text-gray-900 mb-2">Kajian Teori</h4>
-                                        <p class="text-gray-700">
+                                        <h4 class="font-bold text-gray-900 mb-3 text-lg">Kajian Teori</h4>
+                                        <p class="text-gray-700 leading-relaxed">
                                             <!-- GANTI: Tulis kajian teori -->
                                             Pembelajaran berbasis proyek (Project Based Learning) dipilih karena terbukti meningkatkan engagement peserta didik dan mengembangkan keterampilan abad ke-21. Menurut Blumenfeld et al. (2006), PBL memberikan konteks bermakna yang membantu peserta didik menghubungkan konsep abstrak dengan aplikasi praktis.
                                         </p>
@@ -354,55 +456,55 @@
                 </div>
 
                 <!-- Artefak 2: Media Pembelajaran -->
-                <div class="card-artifact bg-white p-6 md:p-8 rounded-lg">
+                <div class="card-artifact p-8">
                     <div class="flex items-start justify-between">
                         <div class="flex-1">
-                            <div class="flex items-center space-x-3 mb-4">
-                                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: #e8dcc8;">
-                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" style="color: #9b8eb8;">
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div class="w-12 h-12 clay-icon" style="background: linear-gradient(135deg, #e8a996 0%, #f4bba7 100%); border-radius: 12px;">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"></path>
                                     </svg>
                                 </div>
                                 <h3 class="text-2xl font-bold text-gray-900">Media Pembelajaran Interaktif</h3>
                             </div>
-                            <button class="toggle-btn font-semibold text-sm transition" style="color: #6b5b8a;" data-target="media-content">
+                            <button class="toggle-btn" data-target="media-content">
                                 <span class="toggle-icon">▼</span> Lihat Detail
                             </button>
-                            <div id="media-content" class="dropdown-content mt-4 pt-4 border-t border-gray-200">
-                                <div class="grid md:grid-cols-2 gap-6">
+                            <div id="media-content" class="dropdown-content mt-6 pt-6 border-t border-gray-200">
+                                <div class="grid md:grid-cols-2 gap-8">
                                     <div>
-                                        <h4 class="font-semibold text-gray-900 mb-2">Konteks</h4>
-                                        <p class="text-gray-700">
+                                        <h4 class="font-bold text-gray-900 mb-3 text-lg">Konteks</h4>
+                                        <p class="text-gray-700 leading-relaxed">
                                             <!-- GANTI: Jelaskan konteks media -->
                                             Media pembelajaran dibuat menggunakan Canva dan PowerPoint untuk visualisasi materi yang lebih menarik dan interaktif.
                                         </p>
                                     </div>
                                     <div>
-                                        <h4 class="font-semibold text-gray-900 mb-2">Tujuan Pembelajaran</h4>
-                                        <p class="text-gray-700">
+                                        <h4 class="font-bold text-gray-900 mb-3 text-lg">Tujuan Pembelajaran</h4>
+                                        <p class="text-gray-700 leading-relaxed">
                                             <!-- GANTI: Tulis tujuan -->
                                             Memvisualisasikan konsep abstrak menjadi konten visual yang mudah dipahami dan meningkatkan engagement belajar.
                                         </p>
                                     </div>
                                     <div>
-                                        <h4 class="font-semibold text-gray-900 mb-2">Kelebihan</h4>
-                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                        <h4 class="font-bold text-gray-900 mb-3 text-lg">Kelebihan</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-2">
                                             <li><!-- GANTI -->Desain visual yang menarik</li>
                                             <li><!-- GANTI -->Konten mudah dipahami</li>
                                             <li><!-- GANTI -->Dapat digunakan berkali-kali</li>
                                         </ul>
                                     </div>
                                     <div>
-                                        <h4 class="font-semibold text-gray-900 mb-2">Kekurangan</h4>
-                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                        <h4 class="font-bold text-gray-900 mb-3 text-lg">Kekurangan</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-2">
                                             <li><!-- GANTI -->Memerlukan peralatan proyektor</li>
                                             <li><!-- GANTI -->Perlu pelatihan penggunaan</li>
                                             <li><!-- GANTI -->Keterbatasan interaktivitas real-time</li>
                                         </ul>
                                     </div>
                                     <div class="md:col-span-2">
-                                        <h4 class="font-semibold text-gray-900 mb-2">Kajian Teori</h4>
-                                        <p class="text-gray-700">
+                                        <h4 class="font-bold text-gray-900 mb-3 text-lg">Kajian Teori</h4>
+                                        <p class="text-gray-700 leading-relaxed">
                                             <!-- GANTI: Tulis kajian teori -->
                                             Teori Dual Coding oleh Paivio (1991) menunjukkan bahwa informasi visual dan verbal yang diintegrasikan meningkatkan retensi memori. Media visual yang dirancang dengan prinsip gestalt dan kontras warna yang tepat dapat meningkatkan fokus dan pemahaman peserta didik hingga 65%.
                                         </p>
@@ -414,55 +516,55 @@
                 </div>
 
                 <!-- Artefak 3: Video Pembelajaran -->
-                <div class="card-artifact bg-white p-6 md:p-8 rounded-lg">
+                <div class="card-artifact p-8">
                     <div class="flex items-start justify-between">
                         <div class="flex-1">
-                            <div class="flex items-center space-x-3 mb-4">
-                                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: #e8dcc8;">
-                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" style="color: #4a3f5c;">
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div class="w-12 h-12 clay-icon" style="background: linear-gradient(135deg, #c97a65 0%, #d97f6e 100%); border-radius: 12px;">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
                                     </svg>
                                 </div>
                                 <h3 class="text-2xl font-bold text-gray-900">Video Tutorial & Demonstrasi</h3>
                             </div>
-                            <button class="toggle-btn font-semibold text-sm transition" style="color: #6b5b8a;" data-target="video-content">
+                            <button class="toggle-btn" data-target="video-content">
                                 <span class="toggle-icon">▼</span> Lihat Detail
                             </button>
-                            <div id="video-content" class="dropdown-content mt-4 pt-4 border-t border-gray-200">
-                                <div class="grid md:grid-cols-2 gap-6">
+                            <div id="video-content" class="dropdown-content mt-6 pt-6 border-t border-gray-200">
+                                <div class="grid md:grid-cols-2 gap-8">
                                     <div>
-                                        <h4 class="font-semibold text-gray-900 mb-2">Konteks</h4>
-                                        <p class="text-gray-700">
+                                        <h4 class="font-bold text-gray-900 mb-3 text-lg">Konteks</h4>
+                                        <p class="text-gray-700 leading-relaxed">
                                             <!-- GANTI: Jelaskan konteks video -->
                                             Video pembelajaran dibuat untuk demonstrasi hands-on praktik konfigurasi jaringan dengan durasi 5-10 menit per topik.
                                         </p>
                                     </div>
                                     <div>
-                                        <h4 class="font-semibold text-gray-900 mb-2">Tujuan Pembelajaran</h4>
-                                        <p class="text-gray-700">
+                                        <h4 class="font-bold text-gray-900 mb-3 text-lg">Tujuan Pembelajaran</h4>
+                                        <p class="text-gray-700 leading-relaxed">
                                             <!-- GANTI: Tulis tujuan -->
                                             Memberikan panduan step-by-step dan mendukung pembelajaran mandiri peserta didik di luar jam kelas.
                                         </p>
                                     </div>
                                     <div>
-                                        <h4 class="font-semibold text-gray-900 mb-2">Kelebihan</h4>
-                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                        <h4 class="font-bold text-gray-900 mb-3 text-lg">Kelebihan</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-2">
                                             <li><!-- GANTI -->Dapat ditonton berulang kali</li>
                                             <li><!-- GANTI -->Dokumentasi proses yang jelas</li>
                                             <li><!-- GANTI -->Accessible di berbagai platform</li>
                                         </ul>
                                     </div>
                                     <div>
-                                        <h4 class="font-semibold text-gray-900 mb-2">Kekurangan</h4>
-                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                        <h4 class="font-bold text-gray-900 mb-3 text-lg">Kekurangan</h4>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-2">
                                             <li><!-- GANTI -->Memerlukan editing dan produksi</li>
                                             <li><!-- GANTI -->Ukuran file besar</li>
                                             <li><!-- GANTI -->Perlu koneksi internet stabil</li>
                                         </ul>
                                     </div>
                                     <div class="md:col-span-2">
-                                        <h4 class="font-semibold text-gray-900 mb-2">Kajian Teori</h4>
-                                        <p class="text-gray-700">
+                                        <h4 class="font-bold text-gray-900 mb-3 text-lg">Kajian Teori</h4>
+                                        <p class="text-gray-700 leading-relaxed">
                                             <!-- GANTI: Tulis kajian teori -->
                                             Teori Cognitive Load Theory (CLT) oleh Sweller mengusulkan bahwa video pembelajaran yang dirancang dengan segmentasi konten, narasi yang jelas, dan visual yang relevan dapat mengurangi beban kognitif hingga 40%, sehingga meningkatkan efektivitas pembelajaran.
                                         </p>
@@ -472,40 +574,37 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Tambahan Artefak sesuai kebutuhan -->
-                <!-- GANTI: Tambahkan artefak lainnya (Evaluasi, Jurnal, dll) dengan struktur yang sama -->
             </div>
         </div>
     </section>
 
     <!-- ===== SECTION LAMPIRAN ===== -->
-    <section id="lampiran" class="section-spacing bg-white">
+    <section id="lampiran" class="section-spacing">
         <div class="max-w-6xl mx-auto">
-            <div class="mb-12">
-                <h2 class="text-4xl font-bold mb-4">Lampiran & Unduhan</h2>
-                <p class="text-gray-600 text-lg">Akses dokumentasi lengkap PPL dalam format PDF</p>
+            <div class="mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Lampiran & Unduhan</h2>
+                <p class="text-lg text-gray-600">Akses dokumentasi lengkap PPL dalam format PDF</p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
                 <!-- Lampiran 7 -->
-                <div class="p-8 rounded-lg border" style="background: linear-gradient(135deg, rgba(107, 91, 138, 0.05) 0%, rgba(232, 220, 200, 0.05) 100%); border-color: #d9cfc0;">
+                <div class="clay-card">
                     <div class="flex items-start justify-between mb-6">
                         <div>
                             <h3 class="text-2xl font-bold text-gray-900 mb-2">Lampiran 7</h3>
-                            <p class="text-gray-600"><!-- GANTI: Deskripsi Lampiran 7 -->Dokumentasi Proses Pembelajaran dan Evaluasi</p>
+                            <p class="text-gray-600 font-medium"><!-- GANTI: Deskripsi Lampiran 7 -->Dokumentasi Proses Pembelajaran dan Evaluasi</p>
                         </div>
-                        <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: #e8dcc8;">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" style="color: #6b5b8a;">
+                        <div class="w-12 h-12 clay-icon" style="background: linear-gradient(135deg, #d97f6e 0%, #e8a996 100%); border-radius: 12px;">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-8-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm0-4H8V8h8v2z"></path>
                             </svg>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-6">
+                    <p class="text-gray-700 mb-8 leading-relaxed">
                         <!-- GANTI: Penjelasan detail Lampiran 7 -->
                         Lampiran 7 memuat dokumentasi lengkap proses pembelajaran meliputi rencana harian, catatan observasi, dan hasil evaluasi peserta didik.
                     </p>
-                    <a href="<!-- GANTI: Link ke file Lampiran 7 -->#" class="btn-primary px-6 py-3 rounded-lg font-semibold inline-flex items-center space-x-2 w-full justify-center">
+                    <a href="<!-- GANTI: Link ke file Lampiran 7 -->#" class="btn-primary px-6 py-3 rounded-lg inline-flex items-center space-x-2 w-full justify-center">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
                         </svg>
@@ -514,23 +613,23 @@
                 </div>
 
                 <!-- Lampiran 8 -->
-                <div class="p-8 rounded-lg border" style="background: linear-gradient(135deg, rgba(155, 142, 184, 0.05) 0%, rgba(107, 91, 138, 0.05) 100%); border-color: #d9cfc0;">
+                <div class="clay-card">
                     <div class="flex items-start justify-between mb-6">
                         <div>
                             <h3 class="text-2xl font-bold text-gray-900 mb-2">Lampiran 8</h3>
-                            <p class="text-gray-600"><!-- GANTI: Deskripsi Lampiran 8 -->Refleksi Diri & Pengembangan Profesional</p>
+                            <p class="text-gray-600 font-medium"><!-- GANTI: Deskripsi Lampiran 8 -->Refleksi Diri & Pengembangan Profesional</p>
                         </div>
-                        <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: #e8dcc8;">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" style="color: #9b8eb8;">
+                        <div class="w-12 h-12 clay-icon" style="background: linear-gradient(135deg, #e8a996 0%, #f4bba7 100%); border-radius: 12px;">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
                             </svg>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-6">
+                    <p class="text-gray-700 mb-8 leading-relaxed">
                         <!-- GANTI: Penjelasan detail Lampiran 8 -->
                         Lampiran 8 berisi refleksi mendalam tentang pembelajaran yang dialami, tantangan yang dihadapi, dan rencana pengembangan profesional jangka panjang.
                     </p>
-                    <a href="<!-- GANTI: Link ke file Lampiran 8 -->#" class="btn-primary px-6 py-3 rounded-lg font-semibold inline-flex items-center space-x-2 w-full justify-center">
+                    <a href="<!-- GANTI: Link ke file Lampiran 8 -->#" class="btn-primary px-6 py-3 rounded-lg inline-flex items-center space-x-2 w-full justify-center">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
                         </svg>
@@ -540,45 +639,45 @@
             </div>
 
             <!-- Siklus Details -->
-            <div class="mt-12 p-8 rounded-lg border" style="background: #f5f3f0; border-color: #d9cfc0;">
-                <h3 class="text-2xl font-bold text-gray-900 mb-6">Dokumentasi Siklus Penelitian</h3>
+            <div class="claymorphic p-8" style="border-radius: 30px;">
+                <h3 class="text-3xl font-bold text-gray-900 mb-8">Dokumentasi Siklus Penelitian</h3>
                 <div class="grid md:grid-cols-3 gap-6">
                     <!-- Siklus 1 -->
-                    <div class="bg-white p-6 rounded-lg border border-gray-200">
-                        <h4 class="font-bold text-lg text-gray-900 mb-3">Siklus 1</h4>
-                        <p class="text-gray-600 text-sm mb-4">
+                    <div class="clay-card">
+                        <h4 class="font-bold text-xl text-gray-900 mb-4">Siklus 1</h4>
+                        <p class="text-gray-600 text-sm mb-5 leading-relaxed">
                             <!-- GANTI: Deskripsi Siklus 1 -->
                             Fokus pada perencanaan dan implementasi awal strategi pembelajaran berbasis proyek dengan evaluasi formatif.
                         </p>
-                        <div class="space-y-2 text-sm text-gray-700">
-                            <p><span class="font-semibold">Tanggal:</span> <!-- GANTI -->17 - 24 Agustus 2024</p>
-                            <p><span class="font-semibold">Hasil:</span> <!-- GANTI -->70% peserta didik mencapai KKM</p>
+                        <div class="space-y-3 text-sm">
+                            <p class="text-gray-700"><span class="font-bold text-gray-900">Tanggal:</span><br><!-- GANTI -->17 - 24 Agustus 2024</p>
+                            <p class="text-gray-700"><span class="font-bold text-gray-900">Hasil:</span><br><!-- GANTI -->70% peserta didik mencapai KKM</p>
                         </div>
                     </div>
 
                     <!-- Siklus 2 -->
-                    <div class="bg-white p-6 rounded-lg border border-gray-200">
-                        <h4 class="font-bold text-lg text-gray-900 mb-3">Siklus 2</h4>
-                        <p class="text-gray-600 text-sm mb-4">
+                    <div class="clay-card">
+                        <h4 class="font-bold text-xl text-gray-900 mb-4">Siklus 2</h4>
+                        <p class="text-gray-600 text-sm mb-5 leading-relaxed">
                             <!-- GANTI: Deskripsi Siklus 2 -->
                             Penyesuaian strategi berdasarkan refleksi Siklus 1 dengan penambahan scaffolding dan peer collaboration.
                         </p>
-                        <div class="space-y-2 text-sm text-gray-700">
-                            <p><span class="font-semibold">Tanggal:</span> <!-- GANTI -->24 - 31 Agustus 2024</p>
-                            <p><span class="font-semibold">Hasil:</span> <!-- GANTI -->85% peserta didik mencapai KKM</p>
+                        <div class="space-y-3 text-sm">
+                            <p class="text-gray-700"><span class="font-bold text-gray-900">Tanggal:</span><br><!-- GANTI -->24 - 31 Agustus 2024</p>
+                            <p class="text-gray-700"><span class="font-bold text-gray-900">Hasil:</span><br><!-- GANTI -->85% peserta didik mencapai KKM</p>
                         </div>
                     </div>
 
                     <!-- Siklus 3 -->
-                    <div class="bg-white p-6 rounded-lg border border-gray-200">
-                        <h4 class="font-bold text-lg text-gray-900 mb-3">Siklus 3</h4>
-                        <p class="text-gray-600 text-sm mb-4">
+                    <div class="clay-card">
+                        <h4 class="font-bold text-xl text-gray-900 mb-4">Siklus 3</h4>
+                        <p class="text-gray-600 text-sm mb-5 leading-relaxed">
                             <!-- GANTI: Deskripsi Siklus 3 -->
                             Optimalisasi dan konsolidasi dengan fokus pada pengembangan keterampilan tingkat tinggi dan transfer pengetahuan.
                         </p>
-                        <div class="space-y-2 text-sm text-gray-700">
-                            <p><span class="font-semibold">Tanggal:</span> <!-- GANTI -->31 Agustus - 7 September 2024</p>
-                            <p><span class="font-semibold">Hasil:</span> <!-- GANTI -->90% peserta didik mencapai KKM</p>
+                        <div class="space-y-3 text-sm">
+                            <p class="text-gray-700"><span class="font-bold text-gray-900">Tanggal:</span><br><!-- GANTI -->31 Agustus - 7 September 2024</p>
+                            <p class="text-gray-700"><span class="font-bold text-gray-900">Hasil:</span><br><!-- GANTI -->90% peserta didik mencapai KKM</p>
                         </div>
                     </div>
                 </div>
@@ -587,13 +686,13 @@
     </section>
 
     <!-- ===== FOOTER ===== -->
-    <footer class="text-white py-12" style="background: linear-gradient(135deg, #6b5b8a 0%, #4a3f5c 100%);">
+    <footer class="text-white py-16" style="background: linear-gradient(135deg, #d97f6e 0%, #c97a65 100%); box-shadow: 0 -10px 40px rgba(217, 127, 110, 0.2);">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <div class="grid md:grid-cols-3 gap-12 mb-8">
                 <!-- Column 1 -->
                 <div>
-                    <h4 class="text-lg font-bold mb-4">E-Portfolio</h4>
-                    <p class="opacity-80">
+                    <h4 class="text-xl font-bold mb-4">E-Portfolio</h4>
+                    <p class="opacity-90 leading-relaxed font-medium">
                         <!-- GANTI: Tambahkan deskripsi footer -->
                         Portfolio pembelajaran dari Program Pendidikan Guru (PPG) Informatika
                     </p>
@@ -601,33 +700,33 @@
 
                 <!-- Column 2 -->
                 <div>
-                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 opacity-80">
-                        <li><a href="#profil" class="hover:text-white transition">Profil</a></li>
-                        <li><a href="#model-guru" class="hover:text-white transition">Model Guru</a></li>
-                        <li><a href="#artefak" class="hover:text-white transition">Artefak</a></li>
-                        <li><a href="#lampiran" class="hover:text-white transition">Lampiran</a></li>
+                    <h4 class="text-xl font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 opacity-90 font-medium">
+                        <li><a href="#profil" class="hover:opacity-100 transition">Profil</a></li>
+                        <li><a href="#model-guru" class="hover:opacity-100 transition">Model Guru</a></li>
+                        <li><a href="#artefak" class="hover:opacity-100 transition">Artefak</a></li>
+                        <li><a href="#lampiran" class="hover:opacity-100 transition">Lampiran</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 3 -->
                 <div>
-                    <h4 class="text-lg font-bold mb-4">Kontak</h4>
-                    <ul class="space-y-2 opacity-80">
+                    <h4 class="text-xl font-bold mb-4">Kontak</h4>
+                    <ul class="space-y-2 opacity-90 font-medium">
                         <li>Email: <!-- GANTI -->ariska@example.com</li>
                         <li>Phone: <!-- GANTI -->+62 812-3456-7890</li>
-                        <li>
-                            <div class="flex space-x-4 mt-3">
-                                <a href="<!-- GANTI -->#" class="hover:text-white transition">LinkedIn</a>
-                                <a href="<!-- GANTI -->#" class="hover:text-white transition">GitHub</a>
+                        <li class="mt-3">
+                            <div class="flex space-x-4">
+                                <a href="<!-- GANTI -->#" class="hover:opacity-100 transition">LinkedIn</a>
+                                <a href="<!-- GANTI -->#" class="hover:opacity-100 transition">GitHub</a>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="border-t border-opacity-20 pt-8" style="border-color: white;">
-                <p class="text-center opacity-80">
+            <div class="border-t border-white border-opacity-20 pt-8">
+                <p class="text-center opacity-90 font-medium">
                     &copy; 2024 Ariska Dewi - Program Pendidikan Guru (PPG) Informatika. All rights reserved.
                 </p>
             </div>
@@ -639,11 +738,12 @@
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileNav = document.getElementById('mobile-nav');
-        const navMenu = document.getElementById('nav-menu');
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileNav.classList.toggle('hidden');
-        });
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileNav.classList.toggle('hidden');
+            });
+        }
 
         // Close mobile menu when a link is clicked
         document.querySelectorAll('#mobile-nav a').forEach(link => {
